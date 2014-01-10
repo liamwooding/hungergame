@@ -1,0 +1,27 @@
+<head>
+  <title>hungergame</title>
+</head>
+
+<body>
+  {{> addPerson}}
+  <section>
+    {{> people}}
+  </section>
+</body>
+
+<template name="addPerson">
+  <form>
+    <input type="text" id="name" placeholder="Name">
+    <input type="url" id="photo" placeholder="Photo URL">
+    <input type="submit" value="Add" />
+  </form>
+</template>
+
+<template name="people">
+  {{#each all}}
+    <div class="person{{#if selected}} selected{{/if}}{{#if cooking}} cooking{{/if}}">
+      <h1>{{name}}</h1>
+      <img src="{{photo}}">
+    </div>
+  {{/each}}
+</template>
